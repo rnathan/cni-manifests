@@ -1,0 +1,31 @@
+region: us-west-2
+env_name: dev
+deployment_id: prod-test
+tags:
+  region: us-west-2
+  env_name: dev
+  deployment_id: prod-test
+private_connect_role_name: us-west-2-private-connect
+
+api_access_whitelist:
+  - 0.0.0.0/32
+  - 0.0.0.1/24
+lambda_layer_s3_key: zip/cni_common_v266.zip
+lambda_function_s3_key: zip/api_v1.zip
+lambda_memory_size: 2048
+
+monitoring:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
+  version: '1'
+dataplane_inbound:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-inbound
+  version: '19'
+dataplane_outbound:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
+  version: '19'
+sitebridge_config:
+  bgp_asn: 64902
+  control_plane_ips: []
+  data_plane_ips: []
+  gateway_ips: []
+

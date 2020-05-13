@@ -1,0 +1,56 @@
+region: us-east-2
+env_name: dev
+deployment_id: pal123
+tags:
+  region: us-east-2
+  env_name: dev
+  deployment_id: pal123
+private_connect_role_name: dev-us-east-2-pal123-private-connect
+api_authorization: CUSTOM
+api_authorizer_gdot_url: https://login.stmpa.stm.salesforce.com/services/c2c/api/v1/validateJwt
+api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Dev
+api_access_whitelist:
+  # PHX
+  - 136.147.46.8/32
+  # DFW
+  - 136.147.62.8/32
+  # PH2
+  - 13.110.6.8/32
+  # IA2
+  - 13.110.14.8/32
+  # ORD
+  - 13.108.254.8
+  # AmerWest
+  - 204.14.239.17/32
+  - 204.14.239.18/32
+  - 204.14.239.13/32
+  - 204.14.239.105/32
+  - 204.14.239.106/32
+  - 204.14.239.107/32
+  - 204.14.239.82/32
+  # AmerWest1
+  - 13.110.54.0/26
+lambda_layer_s3_key: cni_common-udmalpe.zip
+lambda_function_s3_key: zip/api_v4.zip
+lambda_memory_size: 2048
+inbound_vpc_cidr: 10.0.0.0/22
+inbound_data_plane_node_group_instance_types:
+  - m5.4xlarge
+inbound_data_plane_node_group_max_size: 6
+outbound_vpc_cidr: 10.0.4.0/22
+outbound_data_plane_node_group_instance_types:
+  - m5.4xlarge
+outbound_data_plane_node_group_max_size: 6
+monitoring:
+  image: 985884022631.dkr.ecr.us-east-2.amazonaws.com/cni-monitoring
+  version: '1'
+dataplane_inbound:
+  image: 985884022631.dkr.ecr.us-east-2.amazonaws.com/cni-nginx-proxy-inbound
+  version: '20'
+dataplane_outbound:
+  image: 985884022631.dkr.ecr.us-east-2.amazonaws.com/cni-nginx-proxy-outbound
+  version: '20'
+enable_sitebridge: false
+vpc_suffix: 1
+inbound_service_name: pal123-cni-inbound
+outbound_service_name: pal123-cni-outbound
