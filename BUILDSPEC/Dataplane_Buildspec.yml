@@ -41,9 +41,12 @@ phases:
         - git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/sf-sdn/cni-deployer.git cni-deployer
         - cd cni-deployer
         - ls
+        - mkdir -p Manifests/Output/
         - make setup
         #- make test
+        - ls -lrt Manifests/Output/
         - make template
+        - ls -lrt Manifests/Output/
         - cd ..
         - rm -rf cni-deployer
   #post_build:
