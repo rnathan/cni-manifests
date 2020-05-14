@@ -1,14 +1,15 @@
 version: 0.2
 
-#env:
+env:
   #variables:
      # key: "value"
      # key: "value"
   #parameter-store:
      # key: "value"
      # key: "value"
-  #secrets-manager:
-     # key: secret-id:json-key:version-stage:version-id
+  secrets-manager:
+     GIT_USERNAME: SF-SDN-GIT-TOKEN:GIT_USERNAME
+     GIT_PASSWORD: SF-SDN-GIT-TOKEN:GIT_PASSWORD
      # key: secret-id:json-key:version-stage:version-id
   #exported-variables:
      # - variable
@@ -29,13 +30,14 @@ phases:
         - curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
         - chmod +x get_helm.sh
         - ./get_helm.sh
-          #- make setup
   build:
     commands:
+        - echo $GIT_USERNAME
+        - echo $GIT_{ASSWORD
         - pwd
         - ls -lrt
-        - mkdir -p cni-deploy
-        - git clone git@github.com:sf-sdn/cni-test.git cni-deploy
+        #- mkdir -p cni-deploy
+        #- git clone git@github.com:sf-sdn/cni-test.git cni-deploy
         #- make test
         #- make template
   #post_build:
