@@ -37,11 +37,8 @@ phases:
         - echo $MANIFEST_FILE
         - pwd
         - ls -lrt
-        - mkdir -p cni-deployer
-        - cd cni-deployer/
-        - git config user.email "${GIT_USERNAME}@salesforce.com"
-        - git config user.name "${GIT_USERNAME}"
-        - git pull  https://$GIT_USERNAME:$GIT_PASSWORD@github.com/sf-sdn/cni-deployer.git master
+        - git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/sf-sdn/cni-deployer.git cni-deployer
+        - cd cni-deployer
         - ls
         - make test
         - make template
