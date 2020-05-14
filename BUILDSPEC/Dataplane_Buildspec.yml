@@ -34,6 +34,7 @@ phases:
     commands:
         - echo $GIT_USERNAME
         - echo $GIT_{ASSWORD
+        - echo $MANIFEST_FILE
         - pwd
         - ls -lrt
         #- mkdir -p cni-deploy
