@@ -51,6 +51,8 @@ phases:
         - ls -lrt Manifests/Output/
         - make template
         - ls -lrt Manifests/Output/
+        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest Manifests/Dev/core-test.yaml --direction inbound
+        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest Manifests/Dev/core-test.yaml --direction outbound
         - cd ..
         - rm -rf cni-deployer
   #post_build:
