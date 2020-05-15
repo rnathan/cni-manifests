@@ -30,6 +30,11 @@ phases:
         - curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
         - chmod +x get_helm.sh
         - ./get_helm.sh
+        - helm version
+        - curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/darwin/amd64/kubectl
+        - chmod +x ./kubectl
+        - mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+        - kubectl version --short --client
   build:
     commands:
         - echo $GIT_USERNAME
