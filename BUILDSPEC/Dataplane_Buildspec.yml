@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-  #variables:
-     # key: "value"
+  variables:
+     Manifest_File: "kevin-us-west-2.yaml"
      # key: "value"
   #parameter-store:
      # key: "value"
@@ -38,21 +38,13 @@ phases:
     commands:
         - echo $GIT_USERNAME
         - echo $GIT_PASSWORD
-        - echo $MANIFEST_FILE
-        - pwd
-        - ls -lrt
-        - cd ..
-        - git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/sf-sdn/cni-deployer.git cni-deployer
-        - cd cni-deployer
-        - ls
-        - mkdir -p Manifests/Output/
+        - echo $Manifest_File
+        - cd .. && git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/sf-sdn/cni-deployer.git cni-deployer && cd cni-deployer
         - make setup
-        #- make test
-        - ls -lrt Manifests/Output/
+        - make test
         - make template
-        - ls -lrt Manifests/Output/
-        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest Manifests/Dev/core-test.yaml --direction inbound
-        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest Manifests/Dev/core-test.yaml --direction outbound
+        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction inbound
+        - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction outbound
         - cd ..
         - rm -rf cni-deployer
   #post_build:
