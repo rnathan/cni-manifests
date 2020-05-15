@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-     Manifest_File: "kevin-us-west-2.yaml"
+     Manifest_File: "Manifests/Dev/kevin-us-west-2.yaml"
      # key: "value"
   #parameter-store:
      # key: "value"
