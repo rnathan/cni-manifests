@@ -44,6 +44,7 @@ phases:
         - make test
         - make template
         - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction inbound
+        - kubectl get namespace && kubectl get pods -n cni-inbound
         - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction outbound
         - cd ..
         - rm -rf cni-deployer
