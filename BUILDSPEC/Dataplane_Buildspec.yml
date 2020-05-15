@@ -43,6 +43,8 @@ phases:
         - make setup
         - make test
         - make template
+        - aws eks --region us-west-2 update-kubeconfig --name dev-us-west-2-kev-test-inbound-data-plane --role-arn arn:aws:iam::985884022631:role/AWSCodeBuildServiceRole-us-west-2-cni-test
+        - kubectl get nodes
         - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction inbound
         - kubectl get namespace && kubectl get pods -n cni-inbound
         - python src/eks_dataplane_deploy.py --deploy-stage validate --manifest $Manifest_File --direction outbound
