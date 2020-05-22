@@ -62,3 +62,5 @@ write_local_pem_files: false
 outbound_vpcs_config:
   vpc_cidrs:
     - 10.0.4.0/22
+
+new_field: test
