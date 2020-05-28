@@ -60,6 +60,6 @@ inbound_service_name: kev-test-cni-inbound
 outbound_service_name: kev-test-cni-outbound
 write_local_pem_files: false
 outbound_vpcs_config:
-  vpc_cidrs:
-    - 10.0.4.0/22
+  1:
+    vpc_cidrs: 10.0.4.0/22
 git_branch: master
