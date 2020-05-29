@@ -63,3 +63,4 @@ outbound_vpcs_config:
   1:
     vpc_cidrs: 10.0.4.0/22
 git_branch: master
+git_commit: 77f23f0
