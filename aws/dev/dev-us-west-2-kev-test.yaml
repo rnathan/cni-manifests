@@ -77,4 +77,4 @@ write_local_pem_files: false
 outbound_vpcs_config:
   1:
     vpc_cidrs: 10.0.4.0/22
-git_branch: master
+git_branch: outbound_scale_control_plane
