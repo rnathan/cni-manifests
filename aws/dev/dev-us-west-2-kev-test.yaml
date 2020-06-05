@@ -75,5 +75,5 @@ outbound_service_name: kev-test-cni-outbound
 write_local_pem_files: false
 outbound_vpcs_config:
   1:
-    vpc_cidrs: 10.0.4.0/22
+    vpc_cidr: 10.0.4.0/22
 git_branch: outbound_scale_control_plane
