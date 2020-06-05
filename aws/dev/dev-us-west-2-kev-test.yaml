@@ -70,7 +70,6 @@ dataplane_outbound:
   version: '20'
 enable_sitebridge: false
 enable_transit_gateway: false
-vpc_suffix: 1
 inbound_service_name: kev-test-cni-inbound
 outbound_service_name: kev-test-cni-outbound
 write_local_pem_files: false
