@@ -92,7 +92,7 @@ sitebridge_config:
     - my.salesforce.com
     - sfdc.net
     - force.com
-
+eks_k8s_version: '1.15'
 vpc_suffix: 1
 outbound_vpcs_config:
   vpc_cidrs:
