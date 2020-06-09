@@ -26,17 +26,17 @@ outbound_data_plane_node_group_instance_types:
 outbound_data_plane_node_group_max_size: 6
 
 metrics_exporter:
-  image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-metrics-exporter
-  version: '286'
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-metrics-exporter
+  version: '6'
 monitoring:
-  image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
-  version: '286'
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
+  version: '6'
 dataplane_inbound:
-  image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-inbound
-  version: '286'
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-inbound
+  version: '6'
 dataplane_outbound:
-  image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
-  version: '286'
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
+  version: '6'
 enable_sitebridge: false
 enable_transit_gateway: false
 vpc_suffix: 1
