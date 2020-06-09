@@ -14,6 +14,7 @@ lambda_layer_s3_key: zip/cni_common_v226-6.zip
 lambda_function_s3_key: zip/api_v4.zip
 lambda_memory_size: 2048
 
+eks_k8s_version: '1.16'
 inbound_vpc_cidr: 10.20.8.0/22
 inbound_data_plane_node_group_instance_types:
   - m5.xlarge
