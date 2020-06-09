@@ -1,11 +1,11 @@
 region: us-west-2
-env_name: prod
+env_name: dev
 deployment_id: core-stage1
 tags:
   region: us-west-2
-  env_name: prod
+  env_name: dev
   deployment_id: core-stage1
-private_connect_role_name: prod-core-stage1-us-west-2-private-connect
+private_connect_role_name: dev-core-stage1-us-west-2-private-connect
 
 api_authorization: CUSTOM
 api_authorizer_gdot_url: https://cloudatlas.salesforce.com/services/c2c/api/v1/validateJwt
