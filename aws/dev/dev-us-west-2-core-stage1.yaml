@@ -39,10 +39,9 @@ dataplane_outbound:
   version: '6'
 enable_sitebridge: false
 enable_transit_gateway: false
-vpc_suffix: 1
 outbound_vpcs_config:
-  vpc_cidrs:
-    - 10.20.8.0/22
+  1:
+    vpc_cidr: 10.20.8.0/22
 inbound_service_name: stage1-uswest2-cni-nginx-inbound
 outbound_service_name: stage1-uswest2-cni-nginx-outbound
 loadbalancer:
