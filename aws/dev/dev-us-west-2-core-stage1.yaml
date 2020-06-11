@@ -45,6 +45,8 @@ enable_transit_gateway: false
 outbound_vpcs_config:
   1:
     vpc_cidr: 10.20.8.0/22
+  2:
+    vpc_cidr: 10.20.12.0/22
 inbound_service_name: stage1-uswest2-cni-nginx-inbound
 outbound_service_name: stage1-uswest2-cni-nginx-outbound
 loadbalancer:
