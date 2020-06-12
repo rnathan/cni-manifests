@@ -76,6 +76,5 @@ write_local_pem_files: false
 outbound_vpcs_config:
   1:
     vpc_cidr: 10.0.4.0/22
-
 deployer_repo_branch: logs_exporter
 manifests_repo_branch: develop
