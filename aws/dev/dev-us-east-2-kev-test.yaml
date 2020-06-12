@@ -45,8 +45,8 @@ api_access_whitelist:
   - 204.14.236.219/32
   - 204.14.236.218/32
   - 204.14.236.212/32
-lambda_layer_s3_key: zip/cni_common_v277.zip
-lambda_function_s3_key: zip/api_v4.zip
+lambda_layer_s3_key: zip/cni_common_v266_6.zip
+lambda_function_s3_key: zip/api_v5.zip
 lambda_memory_size: 2048
 inbound_vpc_cidr: 10.0.0.0/22
 inbound_data_plane_node_group_instance_types:
@@ -77,4 +77,4 @@ outbound_vpcs_config:
   1:
     vpc_cidr: 10.0.4.0/22
 deployer_repo_branch: logs_exporter
-manifest_repo_branch: develop
+manifests_repo_branch: develop
