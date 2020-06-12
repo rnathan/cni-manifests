@@ -1,0 +1,67 @@
+region: us-west-2
+env_name: dev
+deployment_id: core-stage2
+tags:
+  region: us-west-2
+  env_name: dev
+  deployment_id: core-stage2
+private_connect_role_name: dev-core-stage2-us-west-2-private-connect
+
+api_authorization: CUSTOM
+api_authorizer_gdot_url: https://cloudatlas.salesforce.com/services/c2c/api/v1/validateJwt
+api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Prod
+#api_access_whitelist_ips:
+  # Monitoring VM
+  #- 44.233.159.220/32
+lambda_layer_s3_key: zip/cni_common-udmalpe-b062e5d7-f07f-4097-93ba-d6e5d91c55cb.zip
+lambda_function_s3_key: zip/api_v1.zip
+lambda_memory_size: 2048
+
+eks_k8s_version: '1.15'
+inbound_vpc_cidr: 10.20.8.0/22
+inbound_data_plane_node_group_instance_types:
+  - m5.xlarge
+inbound_data_plane_node_group_max_size: 6
+
+outbound_data_plane_node_group_instance_types:
+  - m5.xlarge
+outbound_data_plane_node_group_max_size: 6
+
+metrics_exporter:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-metrics-exporter
+  version: '7'
+monitoring:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
+  version: '4'
+dataplane_inbound:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-inbound
+  version: '19'
+dataplane_outbound:
+  image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
+  version: '19'
+outbound_vpcs_config:
+  1:
+    vpc_cidr: 10.200.0.0/16
+inbound_service_name: stage2-uswest2-cni-nginx-inbound
+outbound_service_name: stage2-uswest2-cni-nginx-outbound
+loadbalancer:
+  internalLoadBalancer: "yes"
+
+sitebridge_config:
+  bgp_asn: 64902
+  control_plane_ips:
+    - 192.168.100.179/32
+    - 192.168.100.191/32
+    - 192.168.100.193/32
+  data_plane_cidrs:
+    - 100.112.0.0/16
+    - 100.112.0.0/16
+    - 100.112.0.0/16
+  gateway_ips:
+    - 34.222.66.157/32
+    - 34.222.66.158/32
+    - 34.222.66.159/32
+  forwarded_domains:
+    - my.salesforce.com
+    - sfdc.net
+    - force.com
