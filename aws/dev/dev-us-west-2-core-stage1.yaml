@@ -8,8 +8,8 @@ tags:
 private_connect_role_name: dev-core-stage1-us-west-2-private-connect
 
 api_authorization: CUSTOM
-api_authorizer_gdot_url: https://cloudatlas.salesforce.com/services/c2c/api/v1/validateJwt
-api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Prod
+api_authorizer_gdot_url: https://login.stmpa.stm.salesforce.com/services/c2c/api/v1/validateJwt
+api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Dev
 api_access_whitelist_ips:
     # Monitoring VM
     - 44.233.159.220/32
