@@ -46,7 +46,7 @@ inbound_service_name: stage2-uswest2-cni-nginx-inbound
 outbound_service_name: stage2-uswest2-cni-nginx-outbound
 loadbalancer:
   internalLoadBalancer: "yes"
-
+enable_sitebridge: true
 sitebridge_config:
   bgp_asn: 64902
   control_plane_ips:
