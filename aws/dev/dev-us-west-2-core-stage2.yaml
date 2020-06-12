@@ -14,7 +14,7 @@ api_access_whitelist_ips:
   # Monitoring VM
   - 54.244.135.104/32
 lambda_layer_s3_key: zip/cni_common_v226-6.zip
-lambda_function_s3_key: zip/api_v4.zip
+lambda_function_s3_key: zip/api_v5.zip
 lambda_memory_size: 2048
 
 eks_k8s_version: '1.15'
