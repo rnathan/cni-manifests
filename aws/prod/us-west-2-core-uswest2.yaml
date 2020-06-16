@@ -31,8 +31,7 @@ outbound_data_plane_node_group_instance_types:
 outbound_data_plane_node_group_max_size: 6
 outbound_vpcs_config:
   1:
-  vpc_cidrs:
-    - 10.0.4.0/22
+    vpc_cidr: 10.0.4.0/22
 # Dataplane Outbound - End
 
 # Payload - Start
