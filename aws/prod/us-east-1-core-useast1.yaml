@@ -7,73 +7,52 @@ tags:
   deployment_id: core-useast1
 private_connect_role_name: us-east-1-private-connect
 
+# Control Plane Infra - Start
 api_authorization: CUSTOM
 api_authorizer_gdot_url: https://cloudatlas.salesforce.com/services/c2c/api/v1/validateJwt
 api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Prod
-api_access_whitelist:
-  # PHX
-  - 136.147.46.8/32
-  # DFW
-  - 136.147.62.8/32
-  # PH2
-  - 13.110.6.8/32
-  # IAD
-  - 13.108.238.8/32
-  # IA2
-  - 13.110.14.8/32
-  # IA4
-  - 13.110.74.8/32
-  # IA5
-  - 13.110.78.8/32
-  # ORD
-  - 13.108.254.8/32
-  # AmerWest
-  - 204.14.239.17/32
-  - 204.14.239.18/32
-  - 204.14.239.13/32
-  - 204.14.239.105/32
-  - 204.14.239.106/32
-  - 204.14.239.107/32
-  - 204.14.239.82/32
-  # AmerWest1
-  - 13.110.54.0/26
-  # AmerEast
-  - 204.14.236.215/32
-  - 204.14.236.150/32
-  - 204.14.236.152/32
-  - 204.14.236.153/32
-  - 204.14.236.154/32
-  - 204.14.236.219/32
-  - 204.14.236.218/32
-  - 204.14.236.212/32
+api_access_whitelist_ips:
   # Monitoring VM
   - 18.211.125.23/32
-lambda_layer_s3_key: zip/cni_common_v274.zip
-lambda_function_s3_key: zip/api_v4.zip
-lambda_memory_size: 2048
 
+lambda_memory_size: 2048
+# Control Plane Infra - End
+
+
+# Dataplane Inbound - Start
 inbound_vpc_cidr: 10.32.0.0/22
 inbound_data_plane_node_group_instance_types:
   - m5.4xlarge
 inbound_data_plane_node_group_max_size: 6
+# Dataplane Inbound - End
 
-outbound_vpc_cidr: 10.32.4.0/22
+# Dataplane Outbound - Start
 outbound_data_plane_node_group_instance_types:
   - m5.4xlarge
 outbound_data_plane_node_group_max_size: 6
+outbound_vpcs_config:
+  1:
+    vpc_cidr: 10.32.4.0/22
+# Dataplane Outbound - End
+
+# Payload - Start
+lambda_layer_s3_key: zip/cni_common_v226-6.zip
+lambda_function_s3_key: zip/api_v4.zip
 
 metrics_exporter:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-metrics-exporter
-  version: '2'
+  version: '7'
 monitoring:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-monitoring
   version: '4'
 dataplane_inbound:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-nginx-proxy-inbound
-  version: '20'
+  version: '7'
 dataplane_outbound:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-nginx-proxy-outbound
-  version: '20'
+  version: '7'
+# Payload - End
+
 sitebridge_config:
   bgp_asn: 64902
   control_plane_ips:
@@ -92,11 +71,7 @@ sitebridge_config:
     - my.salesforce.com
     - sfdc.net
     - force.com
-eks_k8s_version: '1.15'
-vpc_suffix: 1
-outbound_vpcs_config:
-  vpc_cidrs:
-    - 10.32.4.0/22
 
-inbound_service_name: core-useast1-cni-inbound
-outbound_service_name: core-useast1-cni-outbound
+# K8S Config - Start
+eks_k8s_version: '1.15'
+# K8S Config - End
