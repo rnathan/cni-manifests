@@ -13,7 +13,7 @@ api_authorizer_c2c_key_secret_name: C2C-EC-Keys-Dev
 api_access_whitelist_ips:
     # Monitoring VM
     - 44.233.159.220/32
-lambda_layer_s3_key: zip/cni_common_v226-8.zip
+lambda_layer_s3_key: zip/cni_common_v226-9.zip
 lambda_function_s3_key: zip/api_v5.zip
 lambda_memory_size: 2048
 
@@ -29,16 +29,16 @@ outbound_data_plane_node_group_max_size: 6
 
 metrics_exporter:
   image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-metrics-exporter
-  version: '8'
+  version: '9'
 monitoring:
   image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
-  version: '8'
+  version: '9'
 dataplane_inbound:
   image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-inbound
-  version: '8'
+  version: '9'
 dataplane_outbound:
   image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
-  version: '8'
+  version: '9'
 enable_sitebridge: false
 enable_transit_gateway: false
 outbound_vpcs_config:
