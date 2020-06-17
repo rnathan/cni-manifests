@@ -36,21 +36,21 @@ outbound_vpcs_config:
 # Dataplane Outbound - End
 
 # Payload - Start
-lambda_layer_s3_key: zip/cni_common_v226-6.zip
+lambda_layer_s3_key: zip/zip/cni_common_v274.zip
 lambda_function_s3_key: zip/api_v4.zip
 
 metrics_exporter:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-metrics-exporter
-  version: '7'
+  version: '2'
 monitoring:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-monitoring
   version: '4'
 dataplane_inbound:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-nginx-proxy-inbound
-  version: '7'
+  version: '20'
 dataplane_outbound:
   image: 325178561262.dkr.ecr.us-east-1.amazonaws.com/cni-nginx-proxy-outbound
-  version: '7'
+  version: '20'
 # Payload - End
 
 sitebridge_config:
