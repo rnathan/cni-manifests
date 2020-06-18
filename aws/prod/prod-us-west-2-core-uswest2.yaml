@@ -51,7 +51,7 @@ dataplane_outbound:
   image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
   version: '20'
 # Payload - End
-
+enable_sitebridge: true
 sitebridge_config:
   bgp_asn: 64902
   control_plane_ips:
