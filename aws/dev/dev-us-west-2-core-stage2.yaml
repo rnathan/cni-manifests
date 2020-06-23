@@ -39,7 +39,6 @@ dataplane_inbound:
 dataplane_outbound:
   image: 985884022631.dkr.ecr.us-west-2.amazonaws.com/cni-nginx-proxy-outbound
   version: '7'
-outbound_vpc_vpce_limit: 200
 outbound_vpcs_config:
   1:
     vpc_cidr: 10.200.0.0/16
@@ -51,6 +50,7 @@ outbound_vpcs_config:
       - 10.200.3.0/24
       - 10.200.4.0/24
       - 10.200.5.0/24
+    outbound_vpc_vpce_limit: 200
 inbound_service_name: stage2-uswest2-cni-nginx-inbound
 outbound_service_name: stage2-uswest2-cni-nginx-outbound
 loadbalancer:
