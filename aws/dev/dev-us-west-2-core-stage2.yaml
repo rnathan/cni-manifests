@@ -50,7 +50,7 @@ outbound_vpcs_config:
       - 10.200.3.0/24
       - 10.200.4.0/24
       - 10.200.5.0/24
-    outbound_vpc_vpce_limit: 200
+    vpce_limit: 200
 inbound_service_name: stage2-uswest2-cni-nginx-inbound
 outbound_service_name: stage2-uswest2-cni-nginx-outbound
 loadbalancer:
