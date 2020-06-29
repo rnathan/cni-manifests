@@ -40,7 +40,7 @@ lambda_function_s3_key: zip/api_v4.zip
 
 metrics_exporter:
   image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-metrics-exporter
-  version: '2'
+  version: '9'
 monitoring:
   image: 325178561262.dkr.ecr.us-west-2.amazonaws.com/cni-monitoring
   version: '4'
